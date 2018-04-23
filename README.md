@@ -1,6 +1,8 @@
 # Perceptron
 Perceptron learning algorithm implemented in Python.
 
+![perceptron](perceptron.png)
+
 ## Getting Started
 This project depends upon the popular numerical processing library [NumPy](http://www.numpy.org/) for lightning-fast vector arithmetic, and other packages for unit testing.
 
