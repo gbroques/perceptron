@@ -1,4 +1,8 @@
 # Perceptron
+
+[![Build Status](https://travis-ci.org/gbroques/perceptron.svg?branch=master)](https://travis-ci.org/gbroques/perceptron)
+[![Coverage Status](https://coveralls.io/repos/github/gbroques/perceptron/badge.svg?branch=master)](https://coveralls.io/github/gbroques/perceptron?branch=master)
+
 Perceptron learning algorithm implemented in Python.
 
 ![perceptron](perceptron.png)
