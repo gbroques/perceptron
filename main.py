@@ -13,7 +13,7 @@ def main():
     design_matrix = data[:, :num_features]
     target_values = data[:, -1]
 
-    perceptron = Perceptron(max_iter=100, learning_rate=0.2)
+    perceptron = Perceptron(max_iter=100, learning_rate=0.2, activation_function='sign')
     perceptron.fit(design_matrix, target_values)
 
     wait_for_test_example(perceptron, num_features)
