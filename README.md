@@ -35,9 +35,7 @@ This will install this project's dependencies on your machine.
 ## How to Run
 
 ```
-$ python main.py -h
-
-TODO: Add output
+$ python main.py
 ```
 
 ## Usage
@@ -45,6 +43,9 @@ API inspired by the popular machine learning library
 [scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html).
 
 ```python
+import numpy as np
+from perceptron import Perceptron
+
 # Training data for logical OR function
 training_data = np.array([
     [0, 0, 0],
@@ -58,4 +59,5 @@ target_values = training_data[:, -1]
 perceptron = Perceptron(max_iter=100, learning_rate=0.2)
 perceptron.fit(design_matrix, target_values)
 predictions = perceptron.predict(design_matrix)
+print(predictions)  # [0, 1, 1, 1]
 ```
