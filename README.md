@@ -41,7 +41,17 @@ This will install this project's dependencies on your machine.
 ## How to Run
 
 ```
-$ python main.py
+$ python main.py -h
+usage: main.py [-h] filename
+
+Train a perceptron with data stored in a text file.
+
+positional arguments:
+  filename    Data should be in a specific format. See data.txt for an
+              example.
+
+optional arguments:
+  -h, --help  show this help message and exit
 ```
 
 ## Usage
