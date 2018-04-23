@@ -1,5 +1,5 @@
 # Perceptron
-Perceptron algorithm implemented in Python.
+Perceptron learning algorithm implemented in Python.
 
 ## Getting Started
 This project depends upon the popular numerical processing library [NumPy](http://www.numpy.org/) for lightning-fast vector arithmetic, and other packages for unit testing.
@@ -20,7 +20,7 @@ For more details, see [installation](https://pip.pypa.io/en/stable/installing/)
 on pip's documentation.
 
 ### Installing
-It's recommended you use `virtualenv` to create an isolated Python environment and manage per-project dependencies.
+It's recommended you use `virtualenv` to create isolated Python environments.
 
 You can find details on [virtualenv's documentation](https://virtualenv.pypa.io/en/stable/).
 
@@ -41,6 +41,21 @@ TODO: Add output
 ```
 
 ## Usage
-API inspired by the popular machine learning library, [scikit-learn](http://scikit-learn.org/stable/).
+API inspired by the popular machine learning library
+[scikit-learn](http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html).
 
-TODO: Fill out usage
+```python
+# Training data for logical OR function
+training_data = np.array([
+    [0, 0, 0],
+    [0, 1, 1],
+    [1, 0, 1],
+    [1, 1, 1]
+])
+design_matrix = training_data[:, :2]
+target_values = training_data[:, -1]
+
+perceptron = Perceptron(max_iter=100, learning_rate=0.2)
+perceptron.fit(design_matrix, target_values)
+predictions = perceptron.predict(design_matrix)
+```
