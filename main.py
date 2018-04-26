@@ -16,6 +16,9 @@ def main():
     perceptron = Perceptron(max_iter=100, learning_rate=0.2, activation_function='sign')
     perceptron.fit(design_matrix, target_values)
 
+    accuracy = perceptron.score(design_matrix, target_values) * 100
+    print('Accuracy: {}%'.format(accuracy))
+
     wait_for_test_example(perceptron, num_features)
 
 
