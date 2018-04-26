@@ -52,6 +52,11 @@ class Perceptron:
         target = target_values[i]
         return example, target
 
+    def score(self, test_examples, target_values) -> float:
+        predictions = self.predict(test_examples)
+        num_correct = np.count_nonzero(predictions == target_values)
+        return num_correct / (target_values.size * 1.0)
+
 
 def g(input_value: float, activation_function='heaviside') -> int:
     """Activation function.

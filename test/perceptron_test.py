@@ -59,6 +59,14 @@ class PerceptronTest(unittest.TestCase):
         with self.assertRaises(ValueError):
             Perceptron(activation_function='bologna')
 
+    def test_score(self):
+        expected_score = 1.0
+        design_matrix, target_values = self.get_design_matrix_and_target_values('OR')
+        perceptron = Perceptron(max_iter=100, learning_rate=0.2, activation_function='heaviside', seed=0)
+        perceptron.fit(design_matrix, target_values)
+        score = perceptron.score(design_matrix, target_values)
+        self.assertEqual(expected_score, score)
+
 
 if __name__ == '__main__':
     unittest.main()
