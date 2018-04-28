@@ -1,3 +1,6 @@
+import sys
+from time import sleep
+
 import numpy as np
 from numpy import ndarray
 
@@ -26,12 +29,18 @@ class Perceptron:
         m, n = design_matrix.shape
         design_matrix = self._append_bias(design_matrix, m)
         self.weights_ = self._random.rand(n + 1)  # + 1 for bias
-
-        for _ in range(self._max_iter):
+        num_correct = 0
+        print('Error rate:')
+        for i in range(1, self._max_iter + 1):
             example, expected = self._get_random_example(design_matrix, target_values)
             actual = g(example.dot(self.weights_), self._activation_function)
             error = expected - actual
+            num_correct += int(expected == actual)
+            error_rate = (num_correct / i) * 100
+            print_progress(round(error_rate))
+            sleep(0.07)
             self.weights_ += self._learning_rate * error * example
+        print('\n', end='')
 
         return self
 
@@ -75,3 +84,9 @@ def g(input_value: float, activation_function='heaviside') -> int:
         return 1 if input_value > 0 else 0
     elif activation_function == SIGN:
         return 1 if input_value > 0 else -1
+
+
+def print_progress(percent: int) -> None:
+    bar = '\r[{0:<50}] {1}%'.format('=' * int(percent / 2), percent)
+    sys.stdout.write(bar)
+    sys.stdout.flush()
